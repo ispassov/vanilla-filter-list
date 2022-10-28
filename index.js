@@ -7,7 +7,7 @@ let items = document.querySelectorAll('.list-group-item')
 
 filterInput.addEventListener('input', () => {
   items.forEach(item => {
-    if (item.innerHTML.toLowerCase().includes(filterInput.value.toLowerCase())){
+    if (item.innerText.toLowerCase().includes(filterInput.value.toLowerCase())){
       item.classList.remove('d-none')
     }else {
       item.classList.add('d-none')
