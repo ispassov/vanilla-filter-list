@@ -3,6 +3,7 @@ import './style.css'
 
 let searchInput = document.querySelectorAll('input')[0]
 let filterInput = document.querySelectorAll('input')[1]
+let btnSearch = document.querySelectorAll('.btn')[0]
 let items = document.querySelectorAll('.list-group-item')
 
 filterInput.addEventListener('input', () => {
@@ -15,18 +16,22 @@ filterInput.addEventListener('input', () => {
   })
 })
 
-searchInput.addEventListener('click', () => {
-  console.log('123')
-}
+btnSearch.addEventListener('click', () => {
+  searchInJSON()
+})
 
-function serachInJSON() {
-  fetch('./Digital_Archive_Do_569.json')
+function searchInJSON() {
+  fetch('Digital_Archive_Do_569.json')
   .then((response) =>{
     return response.json()
   })
   .then((objects) =>{
     objects.forEach(object => {
-      console.log(object.filename)
+      if (object.filename.toString().toUpperCase().includes(`${searchInput.value.toUpperCase()}`)){
+        console.log(object.filename)
+      }else {
+        console.log('Y')
+      }
     })
   })
 }
