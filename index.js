@@ -14,3 +14,19 @@ filterInput.addEventListener('input', () => {
     }
   })
 })
+
+searchInput.addEventListener('click', () => {
+  console.log('123')
+}
+
+function serachInJSON() {
+  fetch('./Digital_Archive_Do_569.json')
+  .then((response) =>{
+    return response.json()
+  })
+  .then((objects) =>{
+    objects.forEach(object => {
+      console.log(object.filename)
+    })
+  })
+}
